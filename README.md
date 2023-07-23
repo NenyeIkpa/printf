@@ -1,1 +1,3 @@
-creating a printf file with C programming language
+creating a printf file with C programming language:-
+
+main.h - a file containing all our prototypes
