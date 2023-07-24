@@ -30,5 +30,6 @@ char *_itoa(int num, char *str, int base);
 int _putb(va_list ap);
 int _puto(va_list ap);
 int _putu(va_list ap);
+int _putx(va_list ap);
 
 #endif
