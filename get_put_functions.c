@@ -27,9 +27,17 @@ int _printf(const char *format, ...)
 		return (-1);
 	while (format && format[i])
 	{
+		if (format[strlen(format) - 1] == '%')
+			return (-1);
 		if (format[i] != '%' || (format[i] == '%' && format[i + 1] == ' '))
 		{
 			count = count + _putchar(format[i]);
+			i++;
+			continue;
+		}
+		if (format[i] == '%' && format[i + 1] == ' ' && format[i + 2] == '%')
+		{
+			count = count + _putchar(format[i + 2]);
 			i++;
 			continue;
 		}
