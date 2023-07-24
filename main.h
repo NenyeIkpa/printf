@@ -31,5 +31,6 @@ int _putb(va_list ap);
 int _puto(va_list ap);
 int _putu(va_list ap);
 int _putx(va_list ap);
+int _putX(va_list ap);
 
 #endif
