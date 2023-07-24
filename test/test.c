@@ -18,14 +18,14 @@ int main()
     len = _printf("Percent:[%%]\n");
     len2 = printf("Percent:[%%]\n");
     printf("percent - percent->> mine returns %d while printf returns %d.\n", len2, len);
-	len = printf(" Say% %s to %s", str, name);
+	len = printf("Say %s to %s", str, name);
 	printf("\n");
-	len2 = _printf(" Say% %s to %s", str, name);
+	len2 = _printf("Say %s to %s", str, name);
 	printf("\n");
 	printf("percent - space - percent --> mine returns %d while printf returns %d.\n", len2, len);
-	  len = printf(" Say% %s to %s, okay?%", str, name);
+	  len = printf("Say% %s to %s, okay?%", str, name);
         printf("\n");
-        len2 = _printf(" Say% %s to %s, okay?%", str, name);
+        len2 = _printf("Say% %s to %s, okay?%", str, name);
         printf("\n");
 	printf("ending with percent --> mine returns %d while printf returns %d.\n", len2, len);
 	   len =  _printf("Unknown:[%r]\n");
@@ -41,5 +41,11 @@ int main()
 	len =  _printf("Unknown:Hello%\n");
         len2 = printf("Unknown:Hello%\n");
 	   printf("ending with percent --> mine returns %d while printf returns %d.\n", len2, len);
+	   len =  _printf(NULL);
+        len2 = printf(NULL);
+	 printf("ending with percent --> mine returns %d while printf returns %d.\n", len2, len);
+	len =  _printf("NULL\n");
+        len2 = printf("NULL\n");
+	 printf("ending with percent --> mine returns %d while printf returns %d.\n", len2, len);
 	return (0);
 }
