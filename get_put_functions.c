@@ -28,6 +28,12 @@ int _printf(const char *format, ...)
 	{
 		if (i == (int)strlen(format) - 1 && format[i] == '%')
 			return (-1);
+		if (format[i] != '%' || (format[i] == '%' && format[i + 1] == ' '))
+		{
+			count = count + _putchar(format[i]);
+			i++;
+			continue;
+		}
 		if (format[i] == '%' && format[i + 1] == '%')
 		{
 			count = count + _putchar(format[i + 1]);
@@ -47,9 +53,6 @@ int _printf(const char *format, ...)
 			}
 			++j;
 		}
-		count = count + _putchar(format[i]);
-		j = 0;
-		++i;
 	}
 	va_end(args);
 	return (count);
