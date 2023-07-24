@@ -87,6 +87,11 @@ int _putx(va_list ap)
 /**
  * _putX - function that prints the number given in
  * unsigned hexadecimal or base in capital letters.
+ *
+ * @ap: argument passed.
+ *
+ * Return: count which is number of unsigned int
+ * base 16 in capital letters printed.
  */
 
 int _putX(va_list ap)
