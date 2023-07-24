@@ -39,17 +39,12 @@ int _printf(const char *format, ...)
 		}
 		while (options[j].symbol)
 		{
-			if (format[i] == '%')
+			if (format[i] == '%' && format[i + 1] == *options[j].symbol)
 			{
-				if (format[i + 1] == *options[j].symbol)
-				{
-					count = count + options[j].type(args);
-					i += 2;
-					j = 0;
-					break;
-				}
-				else
-					return (-1);
+				count = count + options[j].type(args);
+				i += 2;
+				j = 0;
+				break;
 			}
 			++j;
 		}
