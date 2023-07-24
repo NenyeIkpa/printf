@@ -20,7 +20,7 @@ int _printf(const char *format, ...)
 	int j = 0;
 	int count = 0;
 
-	va_starta(args, format);
+	va_start(args, format);
 	while (format && format[i])
 	{
 		if (format[i] != '%')
