@@ -27,12 +27,12 @@ int _printf(const char *format, ...)
 	{
 		if (i == (int)strlen(format) - 1 && format[i] == '%')
 			return (-1);
-		if (format[i] == '%' && (format[i + 1] == ' ' && format[i + 2] == '%'))
+		/** if (format[i] == '%' && (format[i + 1] == ' ' && format[i + 2] == '%'))
 		{
 			count = count + _putchar(format[i]);
 			i += 3;
 			continue;
-		}
+		}*/
 		if (format[i] == '%' && format[i + 1] == '%')
 		{
 			count = count + _putchar(format[i + 1]);
