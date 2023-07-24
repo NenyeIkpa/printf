@@ -1,5 +1,7 @@
 #include "main.h"
 
+int _printf(const char *format, ...);
+
 /**
  * _printf - prints input
  *
@@ -37,12 +39,17 @@ int _printf(const char *format, ...)
 		}
 		while (options[j].symbol)
 		{
-			if (format[i] == '%' && format[i + 1] == *options[j].symbol)
+			if (format[i] == '%')
 			{
-				count = count + options[j].type(args);
-				i += 2;
-				j = 0;
-				break;
+				if (format[i + 1] == *options[j].symbol)
+				{
+					count = count + options[j].type(args);
+					i += 2;
+					j = 0;
+					break;
+				}
+				else
+					return (-1);
 			}
 			++j;
 		}
