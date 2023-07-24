@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <limits.h>
 
 int _printf(const char *format, ...);
 
@@ -6,6 +7,9 @@ int main()
 {
 	 int len;
 	 int len2;
+	 unsigned int ui;
+
+	 ui = (unsigned int)INT_MAX + 1024;
 /**	char *str = "hello";
 	char *name = "John";
 */	 len = _printf("Let's try to printf a simple sentence.\n");
@@ -58,5 +62,11 @@ int main()
     	printf("Len:[%d]\n", len2);
 	 _printf("%b\n", 98);
 
+/**	  _printf("Unsigned:[%u]\n", ui);
+*/    printf("Unsigned:[%u]\n", ui);
+    _printf("Unsigned octal:[%o]\n", ui);
+    printf("Unsigned octal:[%o]\n", ui);
+    _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+    printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
 	return (0);
 }
