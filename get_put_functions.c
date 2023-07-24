@@ -44,6 +44,8 @@ int _printf(const char *format, ...)
 			if (format[i] == '%' && format[i + 1] == *options[j].symbol)
 			{
 				count = count + options[j].type(args);
+				if (format[i + 1] == *options[1].symbol && format[i + 2] == '\0')
+					count = count - 1;
 				i += 2;
 				j = 0;
 				break;
