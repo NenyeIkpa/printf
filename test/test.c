@@ -31,8 +31,10 @@ int main()
 	   len =  _printf("Unknown:[%r]\n");
     	len2 = printf("Unknown:[%r]\n");
         printf("ending with percent --> mine returns %d while printf returns %d.\n", len2, len);
-	   len =  _printf("Unknown:[%q]\n");
-        len2 = printf("Unknown:[%q]\n");
+	   len =  _printf("Unknown: Hello John Q%");
+	   printf("\n");
+        len2 = printf("Unknown: Hello John Q%");
+	printf("\n");
 	 printf("ending with percent --> mine returns %d while printf returns %d.\n", len2, len);
 	len =  _printf("Unknown:[%]\n");
         len2 = printf("Unknown:[%]\n");
