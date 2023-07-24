@@ -1,7 +1,12 @@
 #include "main.h"
 
 /**
- * _puto - 
+ * _puto - a function that prints the number
+ * that is passed into it in octal form.
+ * @ap: arguement pointer
+ *
+ * Return: count which is the number of octal
+ * printed
  */
 
 int _puto(va_list ap)
