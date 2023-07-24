@@ -23,6 +23,8 @@ int _printf(const char *format, ...)
 	int count = 0;
 
 	va_start(args, format);
+	if (format == NULL)
+		return (-1);
 	while (format && format[i])
 	{
 		if (format[i] != '%' || (format[i] == '%' && format[i + 1] == ' '))
