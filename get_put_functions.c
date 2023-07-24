@@ -18,9 +18,8 @@ int _printf(const char *format, ...)
 		{"s", _puts},
 		{NULL, NULL}
 	};
-	int i = 0;
-	int j = 0;
-	int count = 0;
+	int i = 0, j = 0, k = 0, count = 0;
+	char special_xters[] = {'d', 'i', 'o', 'u', 'x', 'e', 'f', 'g', 'c', 's', 'p', 'X', 'F', 'G'};
 
 	va_start(args, format);
 	if (format == NULL)
@@ -56,14 +55,18 @@ int _printf(const char *format, ...)
 				j = 0;
 				break;
 			}
-			else
+			++j;
+		}
+		while (special_xters[k])
+		{
+			if (format[i] == '%' && format[i + 1] != special_xters[k])
 			{
 				count = count + _putchar(format[i]);
-				++i;
-				j = 0;
+				i++;
+				k = 0;
 				break;
 			}
-			++j;
+			++k;
 		}
 	}
 	va_end(args);
