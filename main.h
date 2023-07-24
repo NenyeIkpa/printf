@@ -24,5 +24,6 @@ int _printf(const char *format, ...);
 int _putchar(char c);
 int _putc(va_list ap);
 int _puts(va_list ap);
+int _putd(va_list ap);
 
 #endif

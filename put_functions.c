@@ -58,3 +58,23 @@ int _puts(va_list ap)
 		char_count = char_count + _putchar(str[i]);
 	return (char_count);
 }
+
+/**
+ * _putd - a function that prints integers
+ *
+ * @ap: arg pointer
+ *
+ * Return: int
+ */
+
+int _putd(va_list ap)
+{
+	int i, j, count = 0;
+	char *str;
+
+	i = va_arg(ap, int);
+	str = itoa(i, (sizeof(int) * 8 + 1), 10);
+	for (j = 0; str[j]; j++)
+		count = count + _putchar(str[j]);
+	return (count);
+}

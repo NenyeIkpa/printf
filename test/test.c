@@ -47,5 +47,13 @@ int main()
 	len =  _printf("NULL\n");
         len2 = printf("NULL\n");
 	 printf("ending with percent --> mine returns %d while printf returns %d.\n", len2, len);
+
+	  _printf("Length:[%d, %i]\n", len, len);
+    	printf("Length:[%d, %i]\n", len2, len2);
+    	_printf("Negative:[%d]\n", -762534);
+    	printf("Negative:[%d]\n", -762534);
+    	_printf("Len:[%d]\n", len);
+    	printf("Len:[%d]\n", len2);
+
 	return (0);
 }
