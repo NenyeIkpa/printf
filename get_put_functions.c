@@ -18,9 +18,7 @@ int _printf(const char *format, ...)
 		{"s", _puts},
 		{NULL, NULL}
 	};
-	int i = 0;
-	int j = 0;
-	int count = 0;
+	int i = 0, j = 0, count = 0;
 
 	va_start(args, format);
 	if (format == NULL)
@@ -56,15 +54,11 @@ int _printf(const char *format, ...)
 				j = 0;
 				break;
 			}
-			else
-			{
-				count = count + _putchar(format[i]);
-				++i;
-				j = 0;
-				break;
-			}
 			++j;
 		}
+		count = count + _putchar(format[i]);
+		j = 0;
+		++i;
 	}
 	va_end(args);
 	return (count);
