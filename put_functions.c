@@ -73,7 +73,7 @@ int _putd(va_list ap)
 	char *str;
 
 	i = va_arg(ap, int);
-	str = itoa(i, (sizeof(int) * 8 + 1), 10);
+	str = _itoa(i, (sizeof(int) * 8 + 1), 10);
 	for (j = 0; str[j]; j++)
 		count = count + _putchar(str[j]);
 	return (count);

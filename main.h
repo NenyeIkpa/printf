@@ -26,6 +26,6 @@ int _putc(va_list ap);
 int _puts(va_list ap);
 int _putd(va_list ap);
 void reverse(char str[], int length);
-char *itoa(int num, char *str, int base);
+char *_itoa(int num, char *str, int base);
 
 #endif

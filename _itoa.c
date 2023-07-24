@@ -10,7 +10,7 @@
 void reverse(char str[], int length)
 {
 	int start = 0;
-	int end = length - i;
+	int end = length - 1;
 	char temp;
 
 	while (start < end)
@@ -33,7 +33,7 @@ void reverse(char str[], int length)
  * Return: string char type.
  */
 
-char *itoa(int num, char *str, int base)
+char *_itoa(int num, char *str, int base)
 {
 	int i = 0;
 	int isNegative = 0;
@@ -60,4 +60,3 @@ char *itoa(int num, char *str, int base)
 
 	return (str);
 }
-
