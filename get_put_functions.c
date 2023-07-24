@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
 			i += 3;
 			continue;
 		}
-		if (format[i] != '%'|| (format[i] == '%' && format[i + 1] == ' '))
+		if (format[i] != '%' || (format[i] == '%' && format[i + 1] == ' '))
 		{
 			count = count + _putchar(format[i]);
 			i++;
