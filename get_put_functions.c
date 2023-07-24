@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%' && format[i + 1] == ' ' && format[i + 2] == '%')
 		{
 			count = count + _putchar(format[i + 2]);
-			i++;
+			i += 3;;
 			continue;
 		}
 		if (format[i] == '%' && format[i + 1] == '%')
