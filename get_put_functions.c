@@ -47,7 +47,8 @@ int _printf(const char *format, ...)
 			}
 			++j;
 		}
-		if (format[i] != '%' || (format[i] == '%' && (format[i + 1] != 'c' || format[i + 1] != 's')))
+		if (format[i] != '%' || (format[i] == '%' &&
+					(format[i + 1] != 'c' || format[i + 1] != 's')))
 		{
 			count = count + _putchar(format[i]);
 			j = 0;
