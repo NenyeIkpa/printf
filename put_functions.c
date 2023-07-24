@@ -78,3 +78,23 @@ int _putd(va_list ap)
 		count = count + _putchar(str[j]);
 	return (count);
 }
+
+/**
+ * _putb - prints the binary code of a given number
+ *
+ * @ap: arg pointer
+ *
+ * Return: int
+ */
+
+int _putb(va_list ap)
+{
+	int i, j, count = 0;
+	char *btr;
+
+	i = va_arg(ap, int);
+	btr = _itoa(i, malloc(sizeof(char *) * 8 + 1), 2);
+	for (j = 0; btr[j]; j++)
+		count = count + _putchar(btr[j]);
+	return (count);
+}

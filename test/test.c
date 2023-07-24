@@ -23,7 +23,7 @@ int main()
 	len2 = _printf("Say %s to %s", str, name);
 	printf("\n");
 	printf("percent - space - percent --> mine returns %d while printf returns %d.\n", len2, len);
-	  len = printf("Say% %s to %s, okay?%", str, name);
+	   * len = printf("Say% %s to %s, okay?%", str, name);
         printf("\n");
         len2 = _printf("Say% %s to %s, okay?%", str, name);
         printf("\n");
@@ -56,6 +56,7 @@ int main()
     	printf("Negative:[%d]\n", -762534);
     	_printf("Len:[%d]\n", len);
     	printf("Len:[%d]\n", len2);
+	 _printf("%b\n", 98);
 
 	return (0);
 }

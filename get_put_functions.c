@@ -18,6 +18,7 @@ int _printf(const char *format, ...)
 		{"s", _puts},
 		{"d", _putd},
 		{"i", _putd},
+		{"b", _putb},
 		{NULL, NULL}
 	};
 	int i = 0, j = 0, count = 0;
