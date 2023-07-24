@@ -24,7 +24,7 @@ void reverse(char str[], int length)
 }
 
 /**
- * itoa - function that converts integer to string
+ * _itoa - function that converts integer to string
  *
  * @num: number to be converted to string
  * @str: holds the number being converted in reverse order
