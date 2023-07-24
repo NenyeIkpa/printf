@@ -27,18 +27,18 @@ int _printf(const char *format, ...)
 		return (-1);
 	while (format && format[i])
 	{
-		if (format[strlen(format) - 1] && format[strlen(format) - 1] == '%')
+		if (i == (int)strlen(format) - 1 && format[i] == '%')
 			return (-1);
-		if (format[i] != '%' || (format[i] == '%' && format[i + 1] == ' '))
+		if (format[i] == '%' && (format[i + 1] == ' ' && format[i + 2] == '%'))
+		{
+			count = count + _putchar(format[i]);
+			i += 3;
+			continue;
+		}
+		if (format[i] != '%'|| (format[i] == '%' && format[i + 1] == ' '))
 		{
 			count = count + _putchar(format[i]);
 			i++;
-			continue;
-		}
-		if (format[i] == '%' && format[i + 1] == ' ' && format[i + 2] == '%')
-		{
-			count = count + _putchar(format[i + 2]);
-			i += 2;
 			continue;
 		}
 		if (format[i] == '%' && format[i + 1] == '%')
