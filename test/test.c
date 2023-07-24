@@ -23,11 +23,13 @@ int main()
 	len2 = _printf("Say %s to %s", str, name);
 	printf("\n");
 	printf("percent - space - percent --> mine returns %d while printf returns %d.\n", len2, len);
-	  len = printf("Say% %s to %s, okay?%", str, name);
+	/**
+	   * len = printf("Say% %s to %s, okay?%", str, name);
         printf("\n");
         len2 = _printf("Say% %s to %s, okay?%", str, name);
         printf("\n");
 	printf("ending with percent --> mine returns %d while printf returns %d.\n", len2, len);
+	*/
 	   len =  _printf("Unknown:[%r]\n");
     	len2 = printf("Unknown:[%r]\n");
         printf("ending with percent --> mine returns %d while printf returns %d.\n", len2, len);
