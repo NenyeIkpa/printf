@@ -21,18 +21,13 @@ int _printf(const char *format, ...)
 	int i = 0, j = 0, count = 0;
 
 	va_start(args, format);
+
 	if (format == NULL)
 		return (-1);
 	while (format && format[i])
 	{
 		if (i == (int)strlen(format) - 1 && format[i] == '%')
 			return (-1);
-		/** if (format[i] == '%' && (format[i + 1] == ' ' && format[i + 2] == '%'))
-		{
-			count = count + _putchar(format[i]);
-			i += 3;
-			continue;
-		}*/
 		if (format[i] == '%' && format[i + 1] == '%')
 		{
 			count = count + _putchar(format[i + 1]);
