@@ -16,6 +16,8 @@ int _printf(const char *format, ...)
 	print_op options[] = {
 		{"c", _putc},
 		{"s", _puts},
+		{"d", _putd},
+		{"i", _putd},
 		{NULL, NULL}
 	};
 	int i = 0, j = 0, count = 0;

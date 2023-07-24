@@ -6,12 +6,12 @@ int main()
 {
 	 int len;
 	 int len2;
-	char *str = "hello";
+/**	char *str = "hello";
 	char *name = "John";
-	 len = _printf("Let's try to printf a simple sentence.\n");
+*/	 len = _printf("Let's try to printf a simple sentence.\n");
     len2 = printf("Let's try to printf a simple sentence.\n");
       printf("let's try return --> mine returns %d while printf returns %d.\n", len2, len);
-	_printf("Character:[%c]\n", 'H');
+/**	_printf("Character:[%c]\n", 'H');
     printf("Character:[%c]\n", 'H');
     _printf("String:[%s]\n", "I am a string !");
     printf("String:[%s]\n", "I am a string !");
@@ -31,6 +31,7 @@ int main()
 	   len =  _printf("Unknown:[%r]\n");
     	len2 = printf("Unknown:[%r]\n");
         printf("ending with percent --> mine returns %d while printf returns %d.\n", len2, len);
+
 	   len =  _printf("Unknown: Hello John Q%");
 	   printf("\n");
         len2 = printf("Unknown: Hello John Q%");
@@ -47,5 +48,14 @@ int main()
 	len =  _printf("NULL\n");
         len2 = printf("NULL\n");
 	 printf("ending with percent --> mine returns %d while printf returns %d.\n", len2, len);
+*/
+
+	  _printf("Length:[%d, %i]\n", len, len);
+    	printf("Length:[%d, %i]\n", len2, len2);
+    	_printf("Negative:[%d]\n", -762534);
+    	printf("Negative:[%d]\n", -762534);
+    	_printf("Len:[%d]\n", len);
+    	printf("Len:[%d]\n", len2);
+
 	return (0);
 }
