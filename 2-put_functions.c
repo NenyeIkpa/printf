@@ -32,9 +32,9 @@ int _puto(va_list ap)
  * _putu - a function that prints the number
  * given in unsigned decimal or base ten.
  *
- * @ap: argument passed'
+ * @ap: argument passed.
  *
- * Return: count is int type number of unsigned
+ * Return: count is number of unsigned
  * integers in base 10 printed
  */
 
@@ -57,7 +57,13 @@ int _putu(va_list ap)
 }
 
 /**
+ * _putx - function that prints the number given in
+ * unsigned hexadecimal or base 16 in lower letters.
  *
+ * @ap: argument passed.
+ *
+ * Return: count which is number of unsigned int
+ * base 16 in lower letters printed.
  */
 
 int _putx(va_list ap)
@@ -77,6 +83,11 @@ int _putx(va_list ap)
 	free (ptr);
 	return (count);
 }
+
+/**
+ * _putX - function that prints the number given in
+ * unsigned hexadecimal or base in capital letters.
+ */
 
 int _putX(va_list ap)
 {
