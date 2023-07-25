@@ -9,7 +9,6 @@
 #define OCTAL 8
 #define DECIMAL 10
 #define HEXADECIMAL 16
-
 #define BINARY 2
 
 

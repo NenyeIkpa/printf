@@ -164,13 +164,13 @@ int _putX(va_list ap)
 int _putr(va_list ap)
 {
 	int i, length;
-        char *str;
+	char *str;
 
-        str = va_arg(ap, char *);
+	str = va_arg(ap, char *);
 	length = strlen(str);
-        if (str == NULL)
-                return (0);
-        for (i = length - 1; i >= 0; i--)
-                 _putchar(str[i]);
-        return (length);
+	if (str == NULL)
+		return (0);
+	for (i = length - 1; i >= 0; i--)
+		_putchar(str[i]);
+	return (length);
 }
