@@ -41,6 +41,12 @@ int _printf(const char *format, ...)
 			i += 2;
 			continue;
 		}
+		if (format[i] != '%')
+		{
+			count = count + _putchar(format[i]);
+			i++;
+			continue;
+		}
 		while (options[j].symbol)
 		{
 			if (format[i] == '%' && format[i + 1] == *options[j].symbol)
@@ -52,8 +58,11 @@ int _printf(const char *format, ...)
 			}
 			++j;
 		}
-		count = count + _putchar(format[i]);
-		i++;
+		if (format[i] == '%')
+		{
+			count = count + _putchar(format[i]);
+			i++;
+		}
 	}
 	va_end(args);
 	return (count);
