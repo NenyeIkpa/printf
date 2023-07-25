@@ -116,27 +116,40 @@ int _putd(va_list ap)
 
 int _putb(va_list ap)
 {
-	int num, i, temp, count = 0, *btr;
+	int n = va_arg(ap, int);
+	int num, last = n % BINARY, digit, exp = 1;
+        int  i = 1;
 
-	num = va_arg(ap, int);
-	temp = num;
-	while (num / BINARY != 0)
-	{
-		num /= BINARY;
-		count++;
-	}
-	count++;
-	btr = malloc(count * sizeof(int));
+        n = n / BINARY;
+        num = n;
 
-	for (i = 0; i < count; i++)
-	{
-		btr[i] = temp % BINARY;
-		temp /= BINARY;
-	}
-	for (i = count - 1; i >= 0; i--)
-	{
-		_putchar(btr[i] + '0');
-	}
-	free(btr);
-	return (count);
+        if (last < 0)
+        {
+                _putchar('-');
+                num = -num;
+                n = -n;
+                last = -last;
+                i++;
+        }
+        if (num > 0)
+        {
+                while (num / BINARY != 0)
+                {
+                        exp = exp * BINARY;
+                        num = num / BINARY;
+                }
+                num = n;
+                while (exp > 0)
+                {
+                        digit = num / exp;
+                        _putchar(digit + '0');
+                        num = num - (digit * exp);
+                        exp = exp / BINARY;
+                        i++;
+                }
+        }
+        _putchar(last + '0');
+
+        return (i);
+
 }
