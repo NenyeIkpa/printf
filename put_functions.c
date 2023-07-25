@@ -69,14 +69,41 @@ int _puts(va_list ap)
 
 int _putd(va_list ap)
 {
-	signed int i, j = 0, count = 0;
-	char *str;
+	int n = va_arg(ap, int);
+	int num, last = n % 10, digit, exp = 1;
+	int  i = 1;
 
-	i = va_arg(ap, int);
-	str = _itoa(i, malloc(sizeof(char *) * 8 + 1), 10);
-	for (j = 0; str[j]; j++)
-		count = count + _putchar(str[j]);
-	return (count);
+	n = n / 10;
+	num = n;
+
+	if (last < 0)
+	{
+		_putchar('-');
+		num = -num;
+		n = -n;
+		last = -last;
+		i++;
+	}
+	if (num > 0)
+	{
+		while (num / 10 != 0)
+		{
+			exp = exp * 10;
+			num = num / 10;
+		}
+		num = n;
+		while (exp > 0)
+		{
+			digit = num / exp;
+			_putchar(digit + '0');
+			num = num - (digit * exp);
+			exp = exp / 10;
+			i++;
+		}
+	}
+	_putchar(last + '0');
+
+	return (i);
 }
 
 /**
