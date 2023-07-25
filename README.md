@@ -16,4 +16,6 @@ contains file such as:- _putchar a function that prints characters
 			_putc a function that prints a variadic argument of type char
 			_puts a function that prints a variadic arg of type char *
 
-### 2-put
+### 2-puts_function.c
+contains files such as:- _putr a function that prints string in reverse
+			_puto a function that prints the number given in octal form
