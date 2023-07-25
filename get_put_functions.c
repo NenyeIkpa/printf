@@ -21,21 +21,29 @@ int _printf(const char *format, ...)
 		{"x", _putx},
 		{"X", _putX},
 		{"r", _putr},
+		{"p", _putp},
 		{NULL, NULL}
 	};
-	int i = 0, j = 0, count = 0;
+	unsigned long int i = 0, j = 0, count = 0;
 
 	va_start(args, format);
 	if (format == NULL)
 		return (-1);
 	while (format && format[i])
 	{
-		if (i == (int)strlen(format) - 1 && format[i] == '%')
+		if ((i == strlen(format) - 1 && format[i] == '%') ||
+				(format[i] == '%' && format[i + 1] == ' ' && format[i + 2] == '\0'))
 			return (-1);
 		if (format[i] == '%' && format[i + 1] == '%')
 		{
 			count = count + _putchar(format[i + 1]);
 			i += 2;
+			continue;
+		}
+		if (format[i] == '%' && format[i + 1] == ' ' && format[i + 2] == '%')
+		{
+			count = count + _putchar(format[i + 2]);
+			i += 3;
 			continue;
 		}
 		if (format[i] != '%')
