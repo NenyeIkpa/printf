@@ -21,3 +21,4 @@ contains files such as:- _putr a function that prints string in reverse
 			_puto a function that prints the number given in octal form that is base 8
 			_putu a function that prints the number given in decimal form that is base 10
 			_putx a function that prints the number given in lower case hexadecimal form that is base 16.
+			_putX a function that prints the number given in capital letter hexadecimal form
