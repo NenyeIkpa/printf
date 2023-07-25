@@ -12,6 +12,8 @@ contains the file _itoa which converts integer to a string
 ### puts_functions.c
 contains file such as:- _putchar a function that prints characters
 			_putb a function that prints binary code of a given number
-			a variadic function putc
+			_putd a function that prints integers
+			_putc a function that prints a variadic argument of type char
+			_puts a function that prints a variadic arg of type char *
 
 ### 2-put
