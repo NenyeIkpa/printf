@@ -23,6 +23,7 @@ int _printf(const char *format, ...)
 		{"u", _putu},
 		{"x", _putx},
 		{"X", _putX},
+		{"r", _putr},
 		{NULL, NULL}
 	};
 	int i = 0, j = 0, count = 0;

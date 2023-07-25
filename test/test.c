@@ -48,7 +48,7 @@ int main()
         len2 = _printf("Say %s to %s, okay?%", str, name);
         printf("\n");
 	printf("ending with percent --> mine returns %d while printf returns %d.\n", len2, len);
-	   len =  _printf("Unknown:[%r]\n");
+	   len =  _printf("custom r : Unknown:[%r]\n", "June");
     	len2 = printf("Unknown:[%r]\n");
         printf("ending with percent --> mine returns %d while printf returns %d.\n", len2, len);
 	/**
