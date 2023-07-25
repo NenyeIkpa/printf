@@ -1,7 +1,5 @@
 #include "main.h"
-
 int _printf(const char *format, ...);
-
 /**
  * _printf - prints input
  *
@@ -9,7 +7,6 @@ int _printf(const char *format, ...);
  *
  * Return: total number of characters printed
  */
-
 int _printf(const char *format, ...)
 {
 	va_list args;
@@ -29,7 +26,6 @@ int _printf(const char *format, ...)
 	int i = 0, j = 0, count = 0;
 
 	va_start(args, format);
-
 	if (format == NULL)
 		return (-1);
 	while (format && format[i])
