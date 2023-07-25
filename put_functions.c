@@ -116,12 +116,26 @@ int _putd(va_list ap)
 
 int _putb(va_list ap)
 {
-	int i, j, count = 0;
-	char *btr;
+	unsigned int n, m, i, sum;
+	unsigned int a[32];
+	int count;
 
-	i = va_arg(ap, int);
-	btr = _itoa(i, malloc(sizeof(char *) * 8 + 1), 2);
-	for (j = 0; btr[j]; j++)
-		count = count + _putchar(btr[j]);
+	n = va_arg(ap, unsigned int);
+	m = 2147483648; /* (2 ^ 31) */
+	a[0] = n / m;
+	for (i = 1; i < 32; i++)
+	{
+		m /= BINARY;
+		a[i] = (n / m) % BINARY;
+	}
+	for (i = 0, sum = 0, count = 0; i < 32; i++)
+	{
+		sum += a[i];
+		if (sum || i == 31)
+		{
+			_putchar('0' + a[i]);
+			count++;
+		}
+	}
 	return (count);
 }

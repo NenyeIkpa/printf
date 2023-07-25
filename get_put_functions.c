@@ -35,16 +35,16 @@ int _printf(const char *format, ...)
 	{
 		if (i == (int)strlen(format) - 1 && format[i] == '%')
 			return (-1);
-		if (format[i] != '%')
-		{
-			count = count + _putchar(format[i]);
-			i++;
-			continue;
-		}
 		if (format[i] == '%' && format[i + 1] == '%')
 		{
 			count = count + _putchar(format[i + 1]);
 			i += 2;
+			continue;
+		}
+		if (format[i] != '%')
+		{
+			count = count + _putchar(format[i]);
+			i++;
 			continue;
 		}
 		while (options[j].symbol)
