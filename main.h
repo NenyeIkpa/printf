@@ -7,6 +7,7 @@
 #include <string.h>
 
 #define OCTAL 8
+#define DECIMAL 10
 #define HEXADECIMAL 16
 
 /**
