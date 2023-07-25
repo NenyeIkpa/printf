@@ -9,6 +9,9 @@ contains _printf function which contains the logic for sending information to th
 ### _itoa.c
 contains the file _itoa which converts integer to a string
 
-### put
+### puts_functions.c
+contains file such as:- _putchar a function that prints characters
+			_putb a function that prints binary code of a given number
+			a variadic function putc
 
 ### 2-put
