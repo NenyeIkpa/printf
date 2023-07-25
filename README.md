@@ -24,4 +24,4 @@ contains files such as:- _putr a function that prints string in reverse
 			_putX a function that prints the number given in capital letter hexadecimal form
 
 ### 3-puts_function.c
-contains files
+contains files such as:- _putp a functiom that converts the specifier p to print memory address
