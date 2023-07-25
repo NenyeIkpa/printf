@@ -24,14 +24,15 @@ int _printf(const char *format, ...)
 		{"p", _putp},
 		{NULL, NULL}
 	};
-	long unsigned int i = 0, j = 0, count = 0;
+	unsigned long int i = 0, j = 0, count = 0;
 
 	va_start(args, format);
 	if (format == NULL)
 		return (-1);
 	while (format && format[i])
 	{
-		if (i == strlen(format) - 1 && format[i] == '%')
+		if ((i == strlen(format) - 1 && format[i] == '%') ||
+				(format[i] == '%' && format[i + 1] == ' ' && format[i + 2] == '\0'))
 			return (-1);
 		if (format[i] == '%' && format[i + 1] == '%')
 		{
