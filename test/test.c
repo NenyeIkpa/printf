@@ -42,5 +42,19 @@ int main(void)
     printf("Len:[%d]\n", len2);
     _printf("Unknown:[%r]\n");
     printf("Unknown:[%r]\n");
+    _printf("%");
+      _printf("\n");
+         _printf("---");
+    printf("%");
+       _printf("\n");
+          _printf("---");
+	     _printf("\n");
+   len =  _printf("% ");
+       _printf("\n");
+          _printf("---");
+	     _printf("\n");
+    len2 = printf("% ");
+       _printf("\n");
+          _printf("mine is %d, printf is %d\n", len, len2);
     return (0);
 }
