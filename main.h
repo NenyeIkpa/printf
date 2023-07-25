@@ -9,7 +9,6 @@
 #define OCTAL 8
 #define DECIMAL 10
 #define HEXADECIMAL 16
-
 #define BINARY 2
 
 
@@ -39,5 +38,6 @@ int _puto(va_list ap);
 int _putu(va_list ap);
 int _putx(va_list ap);
 int _putX(va_list ap);
+int _putr(va_list ap);
 
 #endif
