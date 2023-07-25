@@ -23,30 +23,17 @@ int _printf(const char *format, ...)
 		{"u", _putu},
 		{"x", _putx},
 		{"X", _putX},
+		{"r", _putr},
 		{NULL, NULL}
 	};
 	int i = 0, j = 0, count = 0;
 
 	va_start(args, format);
 
-	if (format == NULL)
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 	while (format && format[i])
 	{
-		if (i == (int)strlen(format) - 1 && format[i] == '%')
-			return (-1);
-		if (format[i] == '%' && format[i + 1] == '%')
-		{
-			count = count + _putchar(format[i + 1]);
-			i += 2;
-			continue;
-		}
-		if (format[i] != '%')
-		{
-			count = count + _putchar(format[i]);
-			i++;
-			continue;
-		}
 		while (options[j].symbol)
 		{
 			if (format[i] == '%' && format[i + 1] == *options[j].symbol)
@@ -58,11 +45,8 @@ int _printf(const char *format, ...)
 			}
 			++j;
 		}
-		if (format[i] == '%')
-		{
-			count = count + _putchar(format[i]);
-			i++;
-		}
+		count = count + _putchar(format[i]);
+		i++;
 	}
 	va_end(args);
 	return (count);
