@@ -25,6 +25,8 @@ int _puto(va_list ap)
 	}
 	counter++;
 	array = malloc(counter * sizeof(int));
+	if (array == 0)
+		return (0);
 
 	for (i = 0; i < counter; i++)
 	{
@@ -64,6 +66,8 @@ int _putu(va_list ap)
 	}
 	counter++;
 	array = malloc(counter * sizeof(int));
+	if (array == 0)
+		return (0);
 	for (i = 0; i < counter; i++)
 	{
 		array[i] = temp % DECIMAL;
@@ -104,6 +108,8 @@ int _putx(va_list ap)
 	}
 	counter++;
 	array = malloc(counter * sizeof(int));
+	if (array == 0)
+		return (0);
 
 	for (i = 0; i < counter; i++)
 	{
@@ -145,6 +151,8 @@ int _putX(va_list ap)
 	}
 	counter++;
 	array = malloc(counter * sizeof(int));
+	if (array == 0)
+		return (0);
 
 	for (i = 0; i < counter; i++)
 	{
