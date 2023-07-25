@@ -120,26 +120,31 @@ int _putx(va_list ap)
 
 int _putX(va_list ap)
 {
-	unsigned int i, j, k = 0, count = 0;
-	char *Xtr, *ptr;
-	char letters[] = {'a', 'b', 'c', 'd', 'e', 'f'};
-	char cap_letters[] = {'A', 'B', 'C', 'D', 'E', 'F'};
+	int i;
+	int *array;
+	int counter = 0;
+	unsigned int num = va_arg(ap, unsigned int);
+	unsigned int temp = num;
 
-	i = va_arg(ap, unsigned int);
-	ptr = malloc(sizeof(char *) * 8 + 1);
-	if (ptr == NULL)
-		return (0);
-	Xtr = _itoa(i, ptr, 16);
-	for (j = 0; Xtr[j]; j++)
+	while (num / HEXADECIMAL != 0)
 	{
-		count = count + _putchar(Xtr[j]);
-		while (k < 6)
-		{
-			if (Xtr[j] == letters[k])
-				Xtr[j] = cap_letters[k];
-			k++;
-		}
+		num /= HEXADECIMAL;
+		counter++;
 	}
-	free(ptr);
-	return (count);
+	counter++;
+	array = malloc(counter * sizeof(int));
+
+	for (i = 0; i < counter; i++)
+	{
+		array[i] = temp % 16;
+		temp /= HEXADECIMAL;
+	}
+	for (i = counter - 1; i >= 0; i--)
+	{
+		if (array[i] > 9)
+			array[i] = array[i] + 7;
+		_putchar(array[i] + '0');
+	}
+	free(array);
+	return (counter);
 }
