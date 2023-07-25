@@ -18,4 +18,6 @@ contains file such as:- _putchar a function that prints characters
 
 ### 2-puts_function.c
 contains files such as:- _putr a function that prints string in reverse
-			_puto a function that prints the number given in octal form
+			_puto a function that prints the number given in octal form that is base 8
+			_putu a function that prints the number given in decimal form that is base 10
+			_putx a function that prints the number given in lower case hexadecimal form that is base 16.
