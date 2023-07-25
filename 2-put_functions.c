@@ -12,20 +12,31 @@
 
 int _puto(va_list ap)
 {
-	unsigned int i, j, count = 0;
-	char *otr, *ptr;
+	int i;
+	int *array;
+	int counter = 0;
+	unsigned int num = va_arg(ap, unsigned int);
+	unsigned int temp = num;
 
-	i = va_arg(ap, unsigned int);
-	ptr = malloc(sizeof(char *) * 8 + 1);
-	if (ptr == NULL)
-		return (0);
-	otr = _itoa(i, ptr, 8);
+	while (num / OCTAL != 0)
+	{
+		num /= OCTAL;
+		counter++;
+	}
+	counter++;
+	array = malloc(counter * sizeof(int));
 
-	for (j = 0; otr[j]; j++)
-		count = count + _putchar(otr[j]);
-
-	free(ptr);
-	return (count);
+	for (i = 0; i < counter; i++)
+	{
+		array[i] = temp % OCTAL;
+		temp /= OCTAL;
+	}
+	for (i = counter - 1; i >= 0; i--)
+	{
+		_putchar(array[i] + '0');
+	}
+	free(array);
+	return (counter);
 }
 
 /**
@@ -40,20 +51,32 @@ int _puto(va_list ap)
 
 int _putu(va_list ap)
 {
-	unsigned int i, j, count = 0;
-	char *utr, *ptr;
+	int i;
+	int *array;
+	int counter = 0;
+	unsigned int num = va_arg(ap, unsigned int);
+	unsigned int temp = num;
 
-	i = va_arg(ap, unsigned int);
-	ptr = malloc(sizeof(char *) * 8 + 1);
-	if (ptr == NULL)
-		return (0);
-	utr = _itoa(i, ptr, 10);
-
-	for (j = 0; utr[j]; j++)
-		count = count + _putchar(utr[j]);
-
-	free(ptr);
-	return (count);
+	while (num / DECIMAL != 0)
+	{
+		num /= DECIMAL;
+		counter++;
+	}
+	counter++;
+	array = malloc(counter * sizeof(int));
+	for (i = 0; i < counter; i++)
+	{
+		array[i] = temp % DECIMAL;
+		temp /= DECIMAL;
+	}
+	for (i = counter - 1; i >= 0; i--)
+	{
+		if (array[i] > 9)
+			array[i] = array[i] + 7;
+		_putchar(array[i] + '0');
+	}
+	free(array);
+	return (counter);
 }
 
 /**
@@ -68,18 +91,33 @@ int _putu(va_list ap)
 
 int _putx(va_list ap)
 {
-	unsigned int i, j, count = 0;
-	char *xtr, *ptr;
+	int i;
+	int *array;
+	int counter = 0;
+	unsigned int num = va_arg(ap, unsigned int);
+	unsigned int temp = num;
 
-	i = va_arg(ap, unsigned int);
-	ptr = malloc(sizeof(char *) * 8 + 1);
-	if (ptr == NULL)
-		return (0);
-	xtr = _itoa(i, ptr, 16);
-	for (j = 0; xtr[j]; j++)
-		count = count + _putchar(xtr[j]);
-	free(ptr);
-	return (count);
+	while (num / HEXADECIMAL != 0)
+	{
+		num /= HEXADECIMAL;
+		counter++;
+	}
+	counter++;
+	array = malloc(counter * sizeof(int));
+
+	for (i = 0; i < counter; i++)
+	{
+		array[i] = temp % HEXADECIMAL;
+		temp /= HEXADECIMAL;
+	}
+	for (i = counter - 1; i >= 0; i--)
+	{
+		if (array[i] > 9)
+			array[i] = array[i] + 39;
+		_putchar(array[i] + '0');
+	}
+	free(array);
+	return (counter);
 }
 
 /**
@@ -94,26 +132,31 @@ int _putx(va_list ap)
 
 int _putX(va_list ap)
 {
-	unsigned int i, j, k = 0, count = 0;
-	char *Xtr, *ptr;
-	char letters[] = {'a', 'b', 'c', 'd', 'e', 'f'};
-	char cap_letters[] = {'A', 'B', 'C', 'D', 'E', 'F'};
+	int i;
+	int *array;
+	int counter = 0;
+	unsigned int num = va_arg(ap, unsigned int);
+	unsigned int temp = num;
 
-	i = va_arg(ap, unsigned int);
-	ptr = malloc(sizeof(char *) * 8 + 1);
-	if (ptr == NULL)
-		return (0);
-	Xtr = _itoa(i, ptr, 16);
-	for (j = 0; Xtr[j]; j++)
+	while (num / HEXADECIMAL != 0)
 	{
-		count = count + _putchar(Xtr[j]);
-		while (k < 6)
-		{
-			if (Xtr[j] == letters[k])
-				Xtr[j] = cap_letters[k];
-			k++;
-		}
+		num /= HEXADECIMAL;
+		counter++;
 	}
-	free(ptr);
-	return (count);
+	counter++;
+	array = malloc(counter * sizeof(int));
+
+	for (i = 0; i < counter; i++)
+	{
+		array[i] = temp % 16;
+		temp /= HEXADECIMAL;
+	}
+	for (i = counter - 1; i >= 0; i--)
+	{
+		if (array[i] > 9)
+			array[i] = array[i] + 7;
+		_putchar(array[i] + '0');
+	}
+	free(array);
+	return (counter);
 }
