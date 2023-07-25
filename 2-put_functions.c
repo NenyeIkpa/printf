@@ -161,6 +161,13 @@ int _putX(va_list ap)
 	return (counter);
 }
 
+/**
+ * _putr - prints string in reverse
+ *
+ * @ap: arg pointer
+ *
+ * Return: int
+ */
 int _putr(va_list ap)
 {
 	int i, length;
