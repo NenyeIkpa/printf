@@ -12,20 +12,31 @@
 
 int _puto(va_list ap)
 {
-	unsigned int i, j, count = 0;
-	char *otr, *ptr;
+	int i;
+	int *array;
+	int counter = 0;
+	unsigned int num = va_arg(ap, unsigned int);
+	unsigned int temp = num;
 
-	i = va_arg(ap, unsigned int);
-	ptr = malloc(sizeof(char *) * 8 + 1);
-	if (ptr == NULL)
-		return (0);
-	otr = _itoa(i, ptr, 8);
+	while (num / OCTAL != 0)
+	{
+		num /= OCTAL;
+		counter++;
+	}
+	counter++;
+	array = malloc(counter * sizeof(int));
 
-	for (j = 0; otr[j]; j++)
-		count = count + _putchar(otr[j]);
-
-	free(ptr);
-	return (count);
+	for (i = 0; i < counter; i++)
+	{
+		array[i] = temp % OCTAL;
+		temp /= OCTAL;
+	}
+	for (i = counter - 1; i >= 0; i--)
+	{
+		_putchar(array[i] + '0');
+	}
+	free(array);
+	return (counter);
 }
 
 /**
