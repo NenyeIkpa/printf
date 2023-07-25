@@ -79,18 +79,33 @@ int _putu(va_list ap)
 
 int _putx(va_list ap)
 {
-	unsigned int i, j, count = 0;
-	char *xtr, *ptr;
+	int i;
+	int *array;
+	int counter = 0;
+	unsigned int num = va_arg(ap, unsigned int);
+	unsigned int temp = num;
 
-	i = va_arg(ap, unsigned int);
-	ptr = malloc(sizeof(char *) * 8 + 1);
-	if (ptr == NULL)
-		return (0);
-	xtr = _itoa(i, ptr, 16);
-	for (j = 0; xtr[j]; j++)
-		count = count + _putchar(xtr[j]);
-	free(ptr);
-	return (count);
+	while (num / HEXADECIMAL != 0)
+	{
+		num /= HEXADECIMAL;
+		counter++;
+	}
+	counter++;
+	array = malloc(counter * sizeof(int));
+
+	for (i = 0; i < counter; i++)
+	{
+		array[i] = temp % HEXADECIMAL;
+		temp /= HEXADECIMAL;
+	}
+	for (i = counter - 1; i >= 0; i--)
+	{
+		if (array[i] > 9)
+			array[i] = array[i] + 39;
+		_putchar(array[i] + '0');
+	}
+	free(array);
+	return (counter);
 }
 
 /**

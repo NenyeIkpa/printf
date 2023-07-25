@@ -5,7 +5,9 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <string.h>
+
 #define OCTAL 8
+#define HEXADECIMAL 16
 
 /**
  * struct prints - user defined type which
