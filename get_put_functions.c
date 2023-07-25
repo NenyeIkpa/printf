@@ -54,6 +54,8 @@ int _printf(const char *format, ...)
 			}
 			++j;
 		}
+		count = count + _putchar('%');
+		i++;
 	}
 	va_end(args);
 	return (count);
