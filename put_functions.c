@@ -116,40 +116,26 @@ int _putd(va_list ap)
 
 int _putb(va_list ap)
 {
-	int n = va_arg(ap, int);
-	int num, last = n % BINARY, digit, exp = 1;
-        int  i = 1;
+	unsigned int n, m, i, sum;
+	unsigned int a[32];
+	int count;
 
-        n = n / BINARY;
-        num = n;
-
-        if (last < 0)
-        {
-                _putchar('-');
-                num = -num;
-                n = -n;
-                last = -last;
-                i++;
-        }
-        if (num > 0)
-        {
-                while (num / BINARY != 0)
-                {
-                        exp = exp * BINARY;
-                        num = num / BINARY;
-                }
-                num = n;
-                while (exp > 0)
-                {
-                        digit = num / exp;
-                        _putchar(digit + '0');
-                        num = num - (digit * exp);
-                        exp = exp / BINARY;
-                        i++;
-                }
-        }
-        _putchar(last + '0');
-
-        return (i);
-
+	n = va_arg(ap, unsigned int);
+	m = 2147483648; /* (2 ^ 31) */
+	a[0] = n / m;
+	for (i = 1; i < 32; i++)
+	{
+		m /= BINARY;
+		a[i] = (n / m) % BINARY;
+	}
+	for (i = 0, sum = 0, count = 0; i < 32; i++)
+	{
+		sum += a[i];
+		if (sum || i == 31)
+		{
+			_putchar('0' + a[i]);
+			count++;
+		}
+	}
+	return (count);
 }
