@@ -6,6 +6,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define BINARY 2
+
 /**
  * struct prints - user defined type which
  * contains a char pointer and a function pointer.

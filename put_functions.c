@@ -116,12 +116,27 @@ int _putd(va_list ap)
 
 int _putb(va_list ap)
 {
-	int i, j, count = 0;
-	char *btr;
+	int num, i, temp, count = 0, *btr;
 
-	i = va_arg(ap, int);
-	btr = _itoa(i, malloc(sizeof(char *) * 8 + 1), 2);
-	for (j = 0; btr[j]; j++)
-		count = count + _putchar(btr[j]);
+	num = va_arg(ap, int);
+	temp = num;
+	while (num / BINARY != 0)
+	{
+		num /= BINARY;
+		count++;
+	}
+	count++;
+	btr = malloc(count * sizeof(int));
+
+	for (i = 0; i < count; i++)
+	{
+		btr[i] = temp % BINARY;
+		temp /= BINARY;
+	}
+	for (i = count - 1; i >= 0; i--)
+	{
+		_putchar(btr[i] + '0');
+	}
+	free(btr);
 	return (count);
 }
