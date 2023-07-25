@@ -24,6 +24,7 @@ int _printf(const char *format, ...)
 		{NULL, NULL}
 	};
 	int i = 0, j = 0, count = 0;
+
 	va_start(args, format);
 	if (format == NULL)
 		return (-1);
